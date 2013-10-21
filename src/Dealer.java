@@ -23,9 +23,6 @@ public class Dealer
                 player[i].receiveCard(cardDeck.getCard(i+(j*totalPlayers)));
             }
         }
-
-       System.out.print("Hand: ");
-       player[0].showYourHand(3);
     }
 
     // Shows the Score
