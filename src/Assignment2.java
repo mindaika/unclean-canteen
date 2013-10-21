@@ -34,10 +34,14 @@ public class Assignment2
         				  N_GAMES, N_HANDS, CARDS_PER_HAND, CARDS_PER_LINE, SHUFFLE);
         
         // add your code here
-        Dealer FDR = new Dealer();
+        Dealer FDR = new Dealer(N_HANDS);
         FDR.proveDeck(CARDS_PER_LINE);
-        FDR.newGame(N_HANDS);
-        FDR.dealHands(N_HANDS, CARDS_PER_HAND);
-        FDR.layEmOut(CARDS_PER_LINE);
+        for (int i = 0; i < N_GAMES; i++) {
+            System.out.println("\n=== Game " + (i+1) + " ===");
+            FDR.newGame();
+            FDR.dealHands(N_HANDS, CARDS_PER_HAND);
+            FDR.layEmOut(CARDS_PER_LINE);
+        }
+        System.out.println("\n=== Games Complete ===");
     }
 }

@@ -1,18 +1,24 @@
 public class Dealer
 {
     private Deck cardDeck = new Deck();
-    Hand[] player;
+    private Hand[] player;
+
+    Dealer(int totalHands) {
+        player = new Hand[totalHands];
+        for (int i = 0; i < totalHands; i++) {
+            player[i] = new Hand();
+        }
+    }
 
     public void proveDeck(int cardsPerLine) {
         cardDeck.displayDeck(cardsPerLine);
     }
 
-    // Starts a newGame
-    public void newGame(int totalHands) {
+    // Starts a new Game
+    public void newGame() {
         // Create an array of hands
-        player = new Hand[totalHands];
-        for (int i = 0; i < totalHands; i++) {
-            player[i] = new Hand();
+        for (Hand i : player) {
+            i.discard();
         }
     }
 
@@ -20,7 +26,7 @@ public class Dealer
     public void dealHands(int totalPlayers, int cardsPerPlayer) {
         for(int j = 0; j < cardsPerPlayer; j++) {
             for (int i = 0; i < totalPlayers; i++) {
-                player[i].receiveCard(cardDeck.getCard(i+(j*totalPlayers)));
+                player[i].receiveCard(cardDeck.getCard());
             }
         }
     }
@@ -32,7 +38,5 @@ public class Dealer
             player[i].showYourHand(cardsPerLine);
             System.out.println("score = " + player[i].handValue());
         }
-
     }
-
 }

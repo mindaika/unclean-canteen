@@ -13,18 +13,27 @@ public class Deck
                 protoDeck.add(new Card(rank, suit));
     }
 
+    /* Not used at the moment
     public boolean isEmpty() {
         return protoDeck.isEmpty();
     }
+    */
 
+    /* Not used at the moment
     public int deckSize() {
         return protoDeck.size();
     }
+    */
 
-    public Card getCard(int cardNumber) {
-        return protoDeck.get(cardNumber);
+    // Get the next card
+    public Card getCard() {
+        Iterator<Card> iterator = protoDeck.iterator();
+        Card out = iterator.next();
+        iterator.remove();
+        return out;
     }
 
+    // Show the cards in the deck
     public void displayDeck(int cardsPerLine) {
         Iterator<Card> iterator = protoDeck.iterator();
         System.out.println("deck:");
