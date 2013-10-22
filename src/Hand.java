@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+// The Hand Class contains methods expected of a player in a card game: receiving a card from a Dealer,
+// showing the cards in a Hand, tabulating the Score, and discarding the cards in the Hand
 public class Hand
 {
     private List<Card> cardsInHand = new ArrayList<Card>();

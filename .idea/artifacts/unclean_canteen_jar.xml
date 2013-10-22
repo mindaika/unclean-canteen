@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="unclean-canteen:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/unclean_canteen_jar</output-path>
+    <root id="archive" name="unclean-canteen.jar">
+      <element id="module-output" name="unclean-canteen" />
+    </root>
+  </artifact>
+</component>

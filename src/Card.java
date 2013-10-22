@@ -1,3 +1,4 @@
+// The Card class contains methods expected of a Card: The rank, suit, and value of itself
 public class Card
 {
 	public enum Rank

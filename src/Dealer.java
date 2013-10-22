@@ -1,17 +1,24 @@
+// The Dealer class contains methods expected of a dealer: displaying a Deck of Cards, starting a new game,
+// dealing out cards, and requesting players show their cards
 public class Dealer
 {
     private Deck cardDeck = new Deck();
     private Hand[] player;
+    private int cardsToShow;
 
-    Dealer(int totalHands) {
+    Dealer(int totalHands, int cardsPerLine) {
         player = new Hand[totalHands];
         for (int i = 0; i < totalHands; i++) {
             player[i] = new Hand();
         }
+        if (cardsPerLine < 1) {
+            throw new IllegalArgumentException("cards per line must be greater than 0");
+        }
+        cardsToShow = cardsPerLine;
     }
 
-    public void proveDeck(int cardsPerLine) {
-        cardDeck.displayDeck(cardsPerLine);
+    public void proveDeck() {
+        cardDeck.displayDeck(cardsToShow);
     }
 
     // Starts a new Game
@@ -32,10 +39,10 @@ public class Dealer
     }
 
     // Shows the Score
-    public void layEmOut(int cardsPerLine) {
+    public void layEmOut() {
         for (int i = 0; i < player.length; i++) {
             System.out.println("\n--- Hand " + (i+1) + " ---\n");
-            player[i].showYourHand(cardsPerLine);
+            player[i].showYourHand(cardsToShow);
             System.out.println("score = " + player[i].handValue());
         }
     }

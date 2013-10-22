@@ -2,22 +2,27 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
+// The Deck class contains methods for returning a card from a Deck, creating a new Deck,
+// and displaying the items in the Deck
 public class Deck
 {
     private static final List<Card> protoDeck = new ArrayList<Card>();
 
     // initialize prototype deck
+    // I'm guessing this is a static constructor, but it's unlabeled and I didn't
+    // make it, so I'm not sure
     static {
         for (Card.Suit suit : Card.Suit.values())
             for (Card.Rank rank : Card.Rank.values())
                 protoDeck.add(new Card(rank, suit));
     }
 
-    /* Not used at the moment
-    public boolean isEmpty() {
-        return protoDeck.isEmpty();
+    // Creates a new deck
+    private static void newDeck() {
+        for (Card.Suit suit : Card.Suit.values())
+            for (Card.Rank rank : Card.Rank.values())
+                protoDeck.add(new Card(rank, suit));
     }
-    */
 
     /* Not used at the moment
     public int deckSize() {
@@ -27,9 +32,12 @@ public class Deck
 
     // Get the next card
     public Card getCard() {
-        Iterator<Card> iterator = protoDeck.iterator();
-        Card out = iterator.next();
-        iterator.remove();
+        Card out;
+        if (protoDeck.isEmpty()) {
+            newDeck();
+        }
+        out = protoDeck.get(0);
+        protoDeck.remove(0);
         return out;
     }
 
@@ -49,5 +57,4 @@ public class Deck
             System.out.println();
         }
     }
-
 }
