@@ -1,7 +1,6 @@
 // The Dealer class contains methods expected of a dealer: displaying a Deck of Cards, starting a new game,
 // dealing out cards, and requesting players show their cards
-class Dealer
-{
+class Dealer {
     private final Deck cardDeck = new Deck();
     private final Hand[] player;
     private int cardsToShow;
@@ -31,7 +30,7 @@ class Dealer
 
     // Deals the next card in the Deck to each player in order
     public void dealHands(int totalPlayers, int cardsPerPlayer) {
-        for(int j = 0; j < cardsPerPlayer; j++) {
+        for (int j = 0; j < cardsPerPlayer; j++) {
             for (int i = 0; i < totalPlayers; i++) {
                 player[i].receiveCard(cardDeck.getCard());
             }
@@ -41,7 +40,7 @@ class Dealer
     // Shows the Score
     public void layEmOut() {
         for (int i = 0; i < player.length; i++) {
-            System.out.println("\n--- Hand " + (i+1) + " ---\n");
+            System.out.println("\n--- Hand " + (i + 1) + " ---\n");
             player[i].showYourHand(cardsToShow);
             System.out.println("score = " + player[i].handValue());
         }

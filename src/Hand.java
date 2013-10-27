@@ -4,8 +4,7 @@ import java.util.List;
 
 // The Hand Class contains methods expected of a player in a card game: receiving a card from a Dealer,
 // showing the cards in a Hand, tabulating the Score, and discarding the cards in the Hand
-class Hand
-{
+class Hand {
     private final List<Card> cardsInHand = new ArrayList<Card>();
 
     public void receiveCard(Card aCard) {
@@ -15,7 +14,7 @@ class Hand
     public void showYourHand(int displayLines) {
         Iterator<Card> iterator = cardsInHand.iterator();
         while (iterator.hasNext()) {
-            for(int i = 0; i < displayLines && iterator.hasNext(); i++) {
+            for (int i = 0; i < displayLines && iterator.hasNext(); i++) {
                 Card nextCard = iterator.next();
                 System.out.print(nextCard + "(" + nextCard.cardValue() + ")");
                 if (iterator.hasNext()) {

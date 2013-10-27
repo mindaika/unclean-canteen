@@ -1,11 +1,10 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ArrayList;
 
 // The Deck class contains methods for returning a card from a Deck, creating a new Deck,
 // and displaying the items in the Deck
-class Deck
-{
+class Deck {
     private static final List<Card> protoDeck = new ArrayList<Card>();
 
     // initialize prototype deck
@@ -47,7 +46,7 @@ class Deck
         System.out.println("deck:");
 
         while (iterator.hasNext()) {
-            for(int i = 0; i < cardsPerLine && iterator.hasNext(); i++) {
+            for (int i = 0; i < cardsPerLine && iterator.hasNext(); i++) {
                 Card nextCard = iterator.next();
                 System.out.print(nextCard + "(" + nextCard.cardValue() + ")");
                 if (iterator.hasNext()) {
