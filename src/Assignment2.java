@@ -1,11 +1,11 @@
 public class Assignment2
 {
 	// these can't be final, because main would not be able to set them if they were
-	static int		N_GAMES;
-	static int		N_HANDS;
-	static int		CARDS_PER_HAND;
-	static int		CARDS_PER_LINE;
-    static boolean	SHUFFLE;
+	private static int		N_GAMES;
+	private static int		N_HANDS;
+	private static int		CARDS_PER_HAND;
+	private static int		CARDS_PER_LINE;
+    private static boolean	SHUFFLE;
 	
     public static void main(String args[])
     {

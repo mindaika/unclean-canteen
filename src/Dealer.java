@@ -1,9 +1,9 @@
 // The Dealer class contains methods expected of a dealer: displaying a Deck of Cards, starting a new game,
 // dealing out cards, and requesting players show their cards
-public class Dealer
+class Dealer
 {
-    private Deck cardDeck = new Deck();
-    private Hand[] player;
+    private final Deck cardDeck = new Deck();
+    private final Hand[] player;
     private int cardsToShow;
 
     Dealer(int totalHands, int cardsPerLine) {

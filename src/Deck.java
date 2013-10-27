@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 // The Deck class contains methods for returning a card from a Deck, creating a new Deck,
 // and displaying the items in the Deck
-public class Deck
+class Deck
 {
     private static final List<Card> protoDeck = new ArrayList<Card>();
 

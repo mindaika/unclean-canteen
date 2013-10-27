@@ -1,1 +1,136 @@
-This file was created by IntelliJ IDEA 12.1.6 for binding GitHub repository
+CS261 Assignment 2 Instructions
+
+Code To Start With
+
+This assignment provides a you with a .zip file containing the code you should start with. The .zip file will expand into a folder that is set up to be both a BlueJ project and an Eclipse project.
+
+JAR Files
+
+Java executables are packaged as JAR (Java ARchive) files. A JAR file is actually a Zip file. You can open a JAR file with any Zip utility (e.g. 7-Zip). Once you’re ready to submit your work, you will need to create a JAR file containing your code. Both BlueJ and Eclipse have the ability to do this (see the How To Create a JAR File... sections below). In order for your work to be graded, your JAR file must be executable from the command line.
+
+Each JAR file contains a folder named META-INF. This folder contains a file named MANIFEST.MF, which is the JAR file’s “manifest file.” The manifest file is a text file that specifies which Java class in the JAR file contains the main() method. The Java Virtual Machine needs this information in order to be able to run your code from the command line.
+
+You should not change the structure of your project folder in any way. Do not rename files, do not move files to a different folder, do not create new folders or files, etc. I grade your code using a Python script that depends on files and folders being in the expected places.
+
+Regular Assignment
+
+There is no Premium version for this assignment 
+
+Starting with the provided code, write a Java command-line application that shuffles a standard deck of playing cards, and then deals the cards in the normal manner. You should look at the card-related code from this Java web page. Your code should use the enum feature of Java that is mentioned on that page.
+
+The provided code contains five class definitions:
+
+Assignment2.java
+Dealer.java
+Deck.java
+Hand.java
+Card.java
+ 	
+contains the main() method
+deals out the hands of cards
+the deck of playing cards
+a set of cards dealt by the dealer
+a playing card
+
+When you write your code, you should have each of these classes do what would be appropriate in a real-world card game. The Deck, for instance, should not deal itself into Hands – the Dealer should do that. A Hand of cards should compute its own score – the Dealer should not do that. In other words, your code should exhibit good cohesion. Your code will be graded, in part, on its cohesion with respect to the concept of a card game.
+
+Do not add any additional classes to this project. Do not delete any of the classes that are provided.
+
+Five things will be specified on the command line:
+
+number of games
+number of hands dealt
+number of cards per hand
+number of cards per line in the printout
+whether to shuffle the deck before dealing
+(i.e. whether to re-order the cards in a random manner)
+Your code should work with various values of these command line arguments.
+
+Each card has a score, computed as the product of its values in the following tables:
+
+Suit	Value
+Heart	4
+Diamond	3
+Club	2
+Spade	1
+Card	Value
+Ace	11
+King, Queen, Jack	10
+10 – 2	the number on
+the card
+The ACE of SPADES, for example, has a score of 11. The FOUR of HEARTS has a score of 16.
+
+You should implement these scores by having each member of the Suit and Card enums carry its own score. If you do not do this, you will lose significant points in your grade.
+
+A hand's score is computed as the sum of the scores of the cards it contains.
+
+Your application, when run from the command line like this:
+
+java -jar asgmt02.jar 2 5 5 3 false
+Should produce output identical to the contents of asgmt02.out.txt, which is contained in asgmt02.zip.
+
+In this example, the code was told not to shuffle the deck. When your code does not shuffle the deck, it is required that your cards be in the same order as what’s shown in asgmt02.out.txt. In other words, when the deck is not shuffled, ACE of HEARTS should be the first card, KING of HEARTS should be the second, and so on down to DEUCE of SPADES being the last card.
+
+Important: note that the first card in the deck goes into the first hand, the second card in the deck goes into the second hand, and so on – just like how you would actually deal playing cards in the physical world. 
+
+Make sure that your deck prints the specified number of cards per line for as many lines as needed to print the 52 cards in the deck. Note that when a group of cards is printed out, a comma follows each card except the last one, including at the ends of lines. Your code will need to do this.
+
+Start your work with the asgmt02 project, which is both a BlueJ project and an Eclipse project. Submit your work as asgmt02.jar. Make sure to include your .java source code files in your .jar file. 
+Grading
+
+Your work will be graded on the quality of your object-oriented design in addition to how well it works. In particular, pay attention to cohesion. The classes in your code should do what the entities that make up an actual game of cards would do. A class should not do anything that its corresponding real-world entity would not do.
+
+For example, a Card class would not manage collections of cards; a Deck class would not deal itself. Instances of a Card class should represent individual playing cards, and its code should only do things that relate to the capabilities and attributes of an individual card. Do not allow the card-related code to influence your decisions about your object-oriented design. While this code can be useful to you as a starting point, don’t assume that it’s well-written just because it appears on an “official” web page.
+
+Required JAR File Structure
+
+Here is the required structure for the .jar file that you will submit for either version of this assignment:
+
+.jar file
+Assignment2.java
+Assignment2.class
+Dealer.java
+Dealer.class
+Deck.java
+Deck.class
+Hand.java
+Hand.class
+Card.java
+Card.class
+Card$Suit.class
+Card$Rank.class
+META-INF
+MANIFEST.MF
+-compiled form of the Suit enum
+-compiled form of the Rank enum
+(folder)
+manifest file created by your IDE – specifies the class containing the main() method
+
+You can use any Zip utility (e.g. 7-Zip) to check the structure of your .jar file.
+
+ 
+
+How To Create a JAR File in BlueJ
+To create a .jar file from a BlueJ project, do the following:
+
+“Project” menu, “Create Jar File ” command (was “Export...” in older versions of BlueJ)
+choose “Store as jar file”
+main class: choose the class that defines the main method
+check “include source” (if you don’t do this, your .java files will not be included and your work will not be graded)
+click “Continue”
+choose a name and a place for the JAR file
+How To Create a JAR File in Eclipse
+To create a .jar file from an Eclipse project, do the following:
+
+in the Project Explorer view, click the small triangle to the left of your project, which will open an outline view
+right click on the .jardesc (JAR DESCription) file
+click on “Create JAR”
+The .jar file will be created in your project folder. Each assignment project for this course will include a .jardesc file.
+
+To Submit This Assignment
+Submit the requested file to Desire2Learn.   Make sure that your code prints your name, assignment description, and number, as requested.
+
+Be certain to check that you completed the upload successfully. After you click the Upload File button, you must also click the SUBMIT ASSIGNMENT button. This is very easy to forget. If you do not do this, I will not see your work and you will get a grade of zero for the assignment. I would recommend entering an email address so you can be notified that the upload was completed successfully.
+You may upload as many versions as you wish prior to the due date. I will only see and grade the final one. You will not be able to upload assignments after due date.
+Points will be deducted for uploading a file with a name that is not as specified. Every term I get a few students whose approach to following directions is, shall we say, “creative.” I encourage creativity in general, but there are places where it is not appropriate.
+ 
